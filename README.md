@@ -47,6 +47,41 @@ To update this module:
 npm update -g generator-jhipster-database-backup
 ```
 
+## Using Docker
+
+Download the Dockerfile:
+
+```bash
+mkdir docker
+cd docker
+wget https://github.com/yeoman-projects/generator-jhipster-backup-database/raw/master/Dockerfile
+```
+
+Build the Docker images:
+
+```bash
+docker build -t generator-jhipster-backup-database:latest .
+```
+
+Make a folder where you want to generate the Service:
+
+```bash
+mkdir service
+cd service
+```
+
+Run the generator from image to generate service:
+
+```bash
+docker run -it --rm -v $PWD:/home/jhipster/app generator-jhipster-backup-database
+```
+
+Run and attach interactive shell to the generator docker container to work from inside the running container:
+
+```bash
+docker run -it --rm -v $PWD:/home/jhipster/app generator-jhipster-backup-database /bin/bash
+```
+
 # Usage
 
 First, you have to run the generator using the following command :
